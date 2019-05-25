@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slider</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+  .flex{
+    display: flex;
+    align-items: flex-start;
+  }
+	#accordeon {
+    width: 350px;
+    border: 10px solid #fff;
+    box-shadow: 0 0 10px grey;
+    margin: 10%;
+}
+.acc-body {
+    padding: 10px;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.accordeon__container {
+          height: 0px;
+          transition: max-height .3s;
+          overflow: hidden;
+          max-height: 0;
+         
+      }
+      .accordeon__header {
+          display: block;
+          cursor: pointer;
+      }
+      .accordeon__container.__active {
+          height: auto;
+          max-height: 200px;
+      }
+	</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="flex">
+  <div id="accordeon">
+     <strong class="accordeon__header jsToggle">Аккордеон на JS</strong>
+     <div class="accordeon__container">
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique corporis reprehenderit voluptates laboriosam, sed nemo porro at, quidem ipsa impedit unde deleniti aut, autem inventore, voluptatem omnis minus dolorem!</div>
+    </div>
+ </div>
+
+
+<div id="accordeon">
+    <div class="acc-head" id="head">Аккордеон на jQuery</div>
+
+      <div class="acc-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
+      </div>  
+</div>
+</div>
+<script>
+	  function CreateAccordion(id,style){
+	   const btnToggle = document.querySelector(id);
+     btnToggle.style.cssText = style;
+      btnToggle.addEventListener('click', function(){
+         this.nextElementSibling.classList.toggle('__active')
+      });
+  }
+      /*function CreateAccordion_jQuery(id,style_1,style_2){
+      	var btnjQuery = $('#'+id);
+      	$(btnjQuery).on('click', function() {
+  			$(this).next().slideToggle(2000);
+  			$('#yelow').css(style_1);
+  			$('#blue').css(style_2);
+		 });
+      }
+      CreateAccordion('.jsToggle','background: #ffc107','background: #007bff');
+      CreateAccordion_jQuery('jsToggle','background: #ffc107','background: #007bff')*/
+      function Accordeon_jQuery(id,style){
+          $(document).ready(function() {
+            let head = $('#'+id +' .acc-head');
+            head.css(style);
+            $(head).on('click', f_acc);
+      });
+      }
+      function f_acc(){
+      //скрываем все кроме того, что должны открыть
+        $('#accordeon .acc-body').not($(this).next()).slideUp(300);
+      // открываем или скрываем блок под заголовоком, по которому кликнули
+          $(this).next().slideToggle(400);
+      }
+      
+      Accordeon_jQuery('accordeon',{"padding":"5px 10px","background": "#c0c0c0","cursor":"pointer"});
+      CreateAccordion('.jsToggle',"padding:5px 10px; background: #c0c0c0; cursor:pointer");
+
+</script>
+</body>
+</html>
