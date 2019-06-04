@@ -2,92 +2,50 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Slider</title>
+	<title>Accordeon</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<style>
-  .flex{
-    display: flex;
-    align-items: flex-start;
-  }
-  #accordeon {
-    width: 350px;
-    border: 10px solid #fff;
-    box-shadow: 0 0 10px grey;
-    margin: 10%;
-  }
-  .acc-body {
-    padding: 10px;
-    border-bottom: 1px solid #c0c0c0;
-    margin-bottom: 5px;
-    display: none;
-  }
-
-  .accordeon__container {
-          height: 0px;
-          transition: max-height .3s;
-          overflow: hidden;
-          max-height: 0;
-         
-      }
-      .accordeon__header {
-          display: block;
-          cursor: pointer;
-      }
-      .accordeon__container.__active {
-          height: auto;
-          max-height: 200px;
-      }
-	</style>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
-
-<div class="flex">
-  <div id="accordeon">
-     <strong class="accordeon__header jsToggle">Аккордеон на JS</strong>
-     <div class="accordeon__container">
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique corporis reprehenderit voluptates laboriosam, sed nemo porro at, quidem ipsa impedit unde deleniti aut, autem inventore, voluptatem omnis minus dolorem!</div>
+<div class="content" style="margin-top: 10%;">
+  <div class="flex" style="display:flex">
+<div class="container">
+  <h4>Аккордеон на Js</h4>
+  <div class="panel-group">
+    <h3 class="panel-title">Название 1</h3>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa ipsam doloremque sequi tempore nulla ducimus facere impedit veniam, aperiam, mollitia dolores consequuntur hic asperiores, labore totam qui temporibus quae.
     </div>
- </div>
+    <h3 class="panel-title">Название 2</h3>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores hic blanditiis saepe amet praesentium. Aspernatur quisquam illo tempore vitae, nostrum nihil voluptatum non, deleniti dignissimos sit? Ullam possimus, recusandae fugiat!
+    </div>
+    <h3 class="panel-title">Название 3</h3>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi debitis blanditiis dolorem aspernatur veniam, tempore nisi veritatis cupiditate, quisquam sapiente, rerum necessitatibus nulla quidem maxime odit. Commodi, perferendis provident?
+    </div>
+  </div>
+</div>
 
 
 <div id="accordeon">
-    <div class="acc-head" id="head">Аккордеон на jQuery</div>
-
+  <h4>Аккордеон на jQuery</h4>
+      <div class="acc-head"> Название 1</div>
       <div class="acc-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
-      </div>  
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt at aliquam fuga rerum minima sint quidem, laborum quaerat similique a doloribus vitae unde nihil ea, tenetur animi hic ut! Perspiciatis.
+      </div>
+      <div class="acc-head">  Название 2</div>
+      <div class="acc-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, aperiam, neque. Laboriosam velit voluptate ad ipsam incidunt, aut consequuntur iusto vel at quibusdam laborum hic commodi, sint magnam ut ab.
+      </div>
+      <div class="acc-head">Заголовок 3</div>
+      <div class="acc-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere necessitatibus voluptatum, ea ipsa molestias, beatae odio laudantium vero. Amet reiciendis quas, deserunt debitis! Fugit deserunt animi, obcaecati! Qui, nam suscipit.
+      </div>
+    </div>
 </div>
 </div>
-<script>
-	  function CreateAccordion(id,style){
-	   const btnToggle = document.querySelector(id);
-     btnToggle.style.cssText = style;
-      btnToggle.addEventListener('click', function(){
-         this.nextElementSibling.classList.toggle('__active')
-      });
-  }
-    function Accordeon_jQuery(id,style){
-        $(document).ready(function() {
-          let head = $('#'+id +' .acc-head');
-          head.css(style);
-          $(head).on('click', f_acc);
-      });
-      }
-      
-      function f_acc(){
-        $('#accordeon .acc-body').not($(this).next()).slideUp(300);
-          $(this).next().slideToggle(400);
-      }
-      
-      Accordeon_jQuery('accordeon',{"padding":"5px 10px","background": "#c0c0c0","cursor":"pointer"});
-      CreateAccordion('.jsToggle',"padding:5px 10px; background: #c0c0c0; cursor:pointer");
-
-</script>
+<script src="main.js"></script>
 </body>
 </html>
